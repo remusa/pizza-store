@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+    {% else %}
+        <p>Please login to see this page.</p>
+    {% endif %}
+
+{% endblock %}
