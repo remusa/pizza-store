@@ -31,13 +31,13 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'grappelli',
     'orders.apps.OrdersConfig',
+    'cart.apps.CartConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cart.apps.CartConfig'
 ]
 
 MIDDLEWARE = [
@@ -115,15 +115,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, '/')
-
 STATIC_URL = '/templates/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'products/')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "orders/templates"),
 )
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
-LOGIN_REDIRECT_URL = '/menu'
+# LOGIN_REDIRECT_URL = '/menu'
 
 # Email
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
