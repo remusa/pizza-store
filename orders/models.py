@@ -10,16 +10,6 @@ class Category(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    # CATEGORIES = {
-    #     ("pizza_regular", "Regular Pizza"),
-    #     ("pizza_sicilian", "Sicilian Pizza"),
-    #     ("toppings", "Toppings"),
-    #     ("subs", "Subs"),
-    #     ("pasta", "Pasta"),
-    #     ("salads", "Salads"),
-    #     ("dinner_platters", "Dinner Platters")
-    # }
-
     class Meta:
         ordering = ('name',)
         verbose_name = 'category'
@@ -58,7 +48,6 @@ class Product(models.Model):
         return f"({self.id}) {self.name} ${self.price} - {self.category}"
 
     def get_absolute_url(self):
-        # return reverse('product_detail', args=[self.slug])  # self.id, self.slug
         return reverse('product_detail', args=[self.id, self.slug])
 
 

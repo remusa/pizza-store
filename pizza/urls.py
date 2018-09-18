@@ -23,5 +23,6 @@ urlpatterns = [
                   path("admin/", admin.site.urls),
                   path("cart", include("cart.urls")),
                   path("", include("orders.urls")),
+
                   path('grappelli/', include('grappelli.urls')),  # grappelli URLS
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

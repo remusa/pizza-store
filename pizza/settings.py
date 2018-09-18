@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'grappelli',
-    'orders.apps.OrdersConfig',
+    'orders.apps.OrdersConfig', # Shop app
     'cart.apps.CartConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -125,9 +125,10 @@ STATICFILES_DIRS = (
 )
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
-# LOGIN_REDIRECT_URL = '/menu'
+LOGIN_REDIRECT_URL = '/'
 
 # Email
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+# Key used to manage the cart in user session
 CART_SESSION_ID = "cart"
