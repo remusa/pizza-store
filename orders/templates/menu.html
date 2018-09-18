@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="container-menu">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Regular Pizza</h5>
+                <p class="card-text">Delicious regular pizza</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for item in pizza_regular %}
+                    <li class="list-group-item">{{ item.item }}:
+                        <span class="price-small">${{ item.price_small }}</span>
+                        <span class="price-large">${{ item.price_large }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Sicilian Pizza</h5>
+                <p class="card-text">Delicious regular pizza</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for item in pizza_sicilian %}
+                    <li class="list-group-item">{{ item.item }}: ${{ item.price_small }}/${{ item.price_large }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Toppings</h5>
+                <p class="card-text">Delicious</p>
+            </div>
+            <label for="toppingOptions">Select a topping</label>
+            <select class="custom-select" id="toppingOptions">
+                <option selected value="">---------</option>
+                {% for item in toppings %}
+                    <option value="{{ item.item }}">{{ item.item }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit" name="toppingButton" class="btn btn-primary">Add Topping</button>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Pasta</h5>
+                <p class="card-text">Delicious</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for item in pasta %}
+                    <li>{{ item.item }}: ${{ item.price_large }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Salads</h5>
+                <p class="card-text">Delicious</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for item in salads %}
+                    <li>{{ item.item }}: ${{ item.price_large }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Dinner Platters</h5>
+                <p class="card-text">Delicious</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for item in dinner_platters %}
+                    <li>{{ item.item }}: ${{ item.price_small }}/${{ item.price_large }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Subs</h5>
+                <p class="card-text">Delicious</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for item in subs %}
+                    <li class="list-group-item">{{ item.item }}: ${{ item.price_small }}/${{ item.price_large }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

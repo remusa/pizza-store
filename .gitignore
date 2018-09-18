@@ -5,3 +5,5 @@ flask_session/
 .vscode/
 .idea/
 Lecture 7 - Django.lnk
+venv
+venv2

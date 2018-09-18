@@ -2,6 +2,56 @@ from django.db import models
 
 
 # Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=150, db_index=True, default="None")
+    slug = models.SlugField(max_length=150, unique=True, db_index=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    # CATEGORIES = {
+    #     ("pizza_regular", "Regular Pizza"),
+    #     ("pizza_sicilian", "Sicilian Pizza"),
+    #     ("toppings", "Toppings"),
+    #     ("subs", "Subs"),
+    #     ("pasta", "Pasta"),
+    #     ("salads", "Salads"),
+    #     ("dinner_platters", "Dinner Platters")
+    # }
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+
+    def __str__(self):
+        return self.name
+
+
+class Product(models.Model):
+    # SIZE_CHOICES = {
+    #     ("small", "Small"),
+    #     ("large", "Large")
+    # }
+
+    category = models.ForeignKey(Category, related_name="products", on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, db_index=True)
+    slug = models.SlugField(max_length=100, db_index=True)
+    description = models.TextField(blank=True)
+    # size = models.CharField(max_length=10, choices=SIZE_CHOICES)
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    available = models.BooleanField(default=True)
+    stock = models.PositiveIntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    image = models.ImageField(upload_to=f"products/{slug}", blank=True)
+
+    class Meta:
+        ordering = ('name',)
+        index_together = (('id', "slug"),)
+
+    def __self__(self):
+        return f"({self.id}) {self.name} ${self.price} - {self.category}"
+
 
 class Client(models.Model):
     username = models.CharField(max_length=30)
@@ -12,40 +62,6 @@ class Client(models.Model):
 
     def __str__(self):
         return f"{self.username}, {self.email}, {self.first_name}, {self.last_name}"
-
-
-class MenuItem(models.Model):
-    TYPE_CHOICES = {
-        ("pizza_regular", "Regular Pizza"),
-        ("pizza_sicilian", "Sicilian Pizza"),
-        ("toppings", "Toppings"),
-        ("subs", "Subs"),
-        ("pasta", "Pasta"),
-        ("salads", "Salads"),
-        ("dinner_platters", "Dinner Platters")
-    }
-
-    # SIZE_CHOICES = {
-    #     ("small", "Small"),
-    #     ("large", "Large")
-    # }
-
-    type = models.CharField(max_length=30, choices=TYPE_CHOICES)
-    item = models.CharField(max_length=45)
-    price_small = models.FloatField(null=True, blank=True)
-    price_large = models.FloatField(null=True, blank=True)
-
-    # size = models.CharField(max_length=10, choices=SIZE_CHOICES)
-
-    def __self__(self):
-        return f"({self.id}) {self.item} ${self.price_small / self.price_large} - {self.type}"
-
-
-# class Topping(models.Model):
-#     item = models.CharField(max_length=45)
-#
-#     def __self__(self):
-#         return f"({self.id}) {self.item}"
 
 
 class Order(models.Model):

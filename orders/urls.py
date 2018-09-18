@@ -15,4 +15,5 @@ urlpatterns = [
         form_class=UserCreationForm,
         success_url='/'
     ), name="signup"),
+    path("menu/", views.menu, name="menu"),
 ]
