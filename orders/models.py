@@ -49,30 +49,3 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.id, self.slug])
-
-
-class Client(models.Model):
-    username = models.CharField(max_length=30)
-    password = models.CharField(max_length=30)
-    email = models.CharField(max_length=30)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-
-    def __str__(self):
-        return f"{self.username}, {self.email}, {self.first_name}, {self.last_name}"
-
-
-class Order(models.Model):
-    client = models.ForeignKey(Client, on_delete=models.CASCADE)
-    total = models.FloatField()
-
-    def __self__(self):
-        return f"{self.id} - {self.client}: ${self.total}"
-
-
-class OrderDetail(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    price = models.FloatField()
-
-    def __self__(self):
-        return f"{self.order}: ${self.price}"

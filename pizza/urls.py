@@ -22,6 +22,8 @@ from pizza import settings
 urlpatterns = [
                   path("admin/", admin.site.urls),
                   path("cart", include("cart.urls")),
+                  path("orders/", include("orders_management.urls")),
+
                   path("", include("orders.urls")),
 
                   path('grappelli/', include('grappelli.urls')),  # grappelli URLS

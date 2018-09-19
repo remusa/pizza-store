@@ -7,7 +7,7 @@ from orders.models import Product
 
 class Cart(object):
     def __init__(self, request):
-        self.session = request.session # makes sure that the cart is available for other methods in the class
+        self.session = request.session  # makes sure that the cart is available for other methods in the class
         cart = self.session.get(settings.CART_SESSION_ID)
 
         if not cart:

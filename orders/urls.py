@@ -14,12 +14,12 @@ urlpatterns = [
     # url(r'^(?P<slug>[-\w]+)/$', views.product_detail, name='product_detail'),
     url(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$', views.product_detail, name='product_detail'),
 
-    # path('accounts/', include('django.contrib.auth.urls')),
     url('^accounts/', include('django.contrib.auth.urls')),
-    # path("accounts/signup", views.signup_view, name="signup"),
-    url('^register/', CreateView.as_view(
-        template_name='registration/registration_form.html',
-        form_class=UserCreationForm,
-        success_url='/'
-    ), name="signup"),
+
+    url("accounts/signup", views.signup_view, name="signup"),
+    # url('^accounts/signup', CreateView.as_view(
+    #     template_name='registration/registration_form.html',
+    #     form_class=UserCreationForm,
+    #     success_url='/'
+    # ), name="signup"),
 ]

@@ -30,8 +30,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'grappelli',
-    'orders.apps.OrdersConfig', # Shop app
+    'orders.apps.OrdersConfig',  # Shop app
     'cart.apps.CartConfig',
+    "orders_management.apps.OrdersManagementConfig",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'pizza.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['./templates', ],
+        'DIRS': ['', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -63,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "cart.context_processors.cart"
             ],
         },
     },

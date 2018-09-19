@@ -26,19 +26,6 @@ def product_list(request, category_slug=None):
     }
 
     return render(request, "product/list.html", context)
-    # return render(request, "menu.html", context)
-
-    # menu_items = Product.objects.all()
-    #
-    # return render(request, "menu.html", {
-    #     "pizza_regular": menu_items.filter(type="pizza_regular"),
-    #     "pizza_sicilian": menu_items.filter(type="pizza_sicilian"),
-    #     "toppings": menu_items.filter(type="toppings"),
-    #     "subs": menu_items.filter(type="subs"),
-    #     "pasta": menu_items.filter(type="pasta"),
-    #     "salads": menu_items.filter(type="salads"),
-    #     "dinner_platters": menu_items.filter(type="dinner_platters"),
-    # })
 
 
 def product_detail(request, id, slug):

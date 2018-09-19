@@ -25,6 +25,22 @@
 {% include "navbar.html" %}
 
 <main class="container-fluid">
+    <div class="row" style="margin-top: 6%;">
+        <button class="btn btn-info pull-right">
+            {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                    My Shopping Cart:
+                    <a href="{% url "cart:cart_detail" %}" style="color: #fff">
+                        {{ total_items }} item{{ total_items|pluralize }} ${{ cart.get_total_price }}
+                    </a>
+                {% else %}
+                    Your cart is empty.
+                {% endif %}
+            {% endwith %}
+        </button>
+    </div>
+
+
     {% block content %}
     {% endblock %}
 </main>
