@@ -42,14 +42,11 @@ def product_detail(request, id, slug):
 
 def signup_view(request):
     if request.method == "POST":
-        username = request.POST["username"]
-        password = request.POST["password"]
         email = request.POST["password"]
-        first_name = request.POST["password"]
-        last_name = request.POST["password"]
+        password = request.POST["password"]
 
         # Create user and save to the database
-        user = User.objects.create_user(username, email, password, first_name, last_name)
+        user = User.objects.create_user(email, password)
         user.save()
 
     return render(request, "registration/signup.html", {"message": "Create new account"})

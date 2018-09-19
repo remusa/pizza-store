@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 
-{% block main %}
+{% block content %}
 
-    <h1>Sign up</h1>
+    <h1>Register</h1>
 
     {% if message %}
         <div>
@@ -10,35 +10,42 @@
         </div>
     {% endif %}
 
-    <form action="{% url 'signup' %}" method="post">
+    <form role="form" action="{% url 'product_list' %}" method="post">
         {% csrf_token %}
 
+        {#        <div class="form-group">#}
+        {#            <label for="username">Username</label>#}
+        {#            <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp"#}
+        {#                   required/>#}
+        {#        </div>#}
         <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp"
-                   required/>
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required/>
         </div>
+
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password" aria-describedby="passwordHelp"
                    required/>
         </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required/>
-        </div>
-        <div class="form-group">
-            <label for="first_name">First name</label>
-            <input type="text" class="form-control" id="first_name" name="first_name" aria-describedby="first_nameHelp"
-                   required/>
-        </div>
-        <div class="form-group">
-            <label for="last_name">Last name</label>
-            <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="last_nameHelp"
-                   required/>
-        </div>
 
-        <button type="submit" name="" class="btn btn-primary">Register</button>
+        {#        <div class="form-group">#}
+        {#            <label for="first_name">First name</label>#}
+        {#            <input type="text" class="form-control" id="first_name" name="first_name" aria-describedby="first_nameHelp"#}
+        {#                   required/>#}
+        {#        </div>#}
+        {#        <div class="form-group">#}
+        {#            <label for="last_name">Last name</label>#}
+        {#            <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="last_nameHelp"#}
+        {#                   required/>#}
+        {#        </div>#}
+        {#        <div class="form-group">#}
+        {#            <label for="last_name">Address</label>#}
+        {#            <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="last_nameHelp"#}
+        {#                   required/>#}
+        {#        </div>#}
+
+        <button type="submit" name="submitButton" class="btn btn-primary">Sign Up</button>
     </form>
 
 {% endblock %}

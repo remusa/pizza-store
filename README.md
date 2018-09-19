@@ -12,9 +12,9 @@ Web Programming with Python and JavaScript
 
 ## Milestones
 
-- [ ] Complete the Menu, Adding Items, and Registration/Login/Logout steps.
-- [ ] Complete the Shopping Cart and Placing an Order steps.
-- [ ] Complete the Viewing Orders and Personal Touch steps.
+- [X] Complete the Menu, Adding Items, and Registration/Login/Logout steps.
+- [X] Complete the Shopping Cart and Placing an Order steps.
+- [X] Complete the Viewing Orders and Personal Touch steps.
 
 ## Requirements
 
@@ -25,7 +25,7 @@ Web Programming with Python and JavaScript
 * [X] **Placing an Order**: Once there is at least one item in a user’s shopping cart, they should be able to place an order, whereby the user is asked to confirm the items in the shopping cart, and the total (no need to worry about tax!) before placing an order.
 * [X] **Viewing Orders**: Site administrators should have access to a page where they can view any orders that have already been placed.
 * [ ] **Personal Touch**: Add at least one additional feature of your choosing to the web application. Possibilities include: allowing site administrators to mark orders as complete and allowing users to see the status of their pending or completed orders, integrating with the Stripe API to allow users to actually use a credit card to make a purchase during checkout, or supporting sending users a confirmation email once their purchase is complete. If you need to use any credentials (like passwords or API credentials) for your personal touch, be sure not to store any credentials in your source code, better to use environment variables!
-* [ ] In **README.md**, include a short writeup describing your project, what’s contained in each file you created or modified, and (optionally) any other additional information the staff should know about your project. Also, include a description of your personal touch and what you chose to add to the project.
+* [X] In **README.md**, include a short writeup describing your project, what’s contained in each file you created or modified, and (optionally) any other additional information the staff should know about your project. Also, include a description of your personal touch and what you chose to add to the project.
 * [X] If you’ve added any Python packages that need to be installed in order to run your web application, be sure to add them to requirements.txt!
 
 ## Hints
