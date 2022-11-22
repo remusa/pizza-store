@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 django = "==2.2.28"
-pillow = "==9.0.1"
+pillow = "==9.3.0"
 django-grappelli = "*"
 gunicorn = "*"
 
